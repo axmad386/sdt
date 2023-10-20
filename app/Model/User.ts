@@ -18,11 +18,17 @@ class User extends Traitable(class { }).use(AuthenticatableTrait) {
   @Column("varchar")
   last_name!: string;
 
+  @Column("varchar")
+  location!: string;
+
+  @Column("date")
+  birthday!: Date;
+
   @Column("boolean", { default: true })
   active!: boolean;
 
-  @Column("varchar", { select: false })
-  password!: string;
+  @Column("varchar", { select: false, nullable: true })
+  password?: string;
 
   public get full_name() {
     return `${this.first_name} ${this.last_name}`;

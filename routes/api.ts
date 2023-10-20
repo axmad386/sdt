@@ -1,19 +1,11 @@
-import { DB } from "@lunoxjs/typeorm";
-import User from "../app/Model/User";
-import { Route, Response } from "@lunoxjs/core/facades";
+import { Route } from "@lunoxjs/core/facades";
+import TimezoneController from "../app/Http/Controllers/TimezoneController";
+import UserController from "../app/Http/Controllers/UserController";
 
-Route.get("/", () => {
-  return Response.make({
-    success: true,
-    message: "OK",
-  });
-});
-
-Route.get("/users", async () => {
-  const users = await DB.use(User).find();
-  return Response.make({
-    success: true,
-    message: "User List",
-    data: { users },
-  });
+Route.get("/country", [TimezoneController, "getCountries"]);
+Route.prefix("/user").group(() => {
+  Route.get("/", [UserController, "list"]);
+  Route.post("/", [UserController, "create"]);
+  Route.patch("/:id", [UserController, "update"]);
+  Route.delete("/:id", [UserController, "delete"]);
 });

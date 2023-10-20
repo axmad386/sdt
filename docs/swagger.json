@@ -1,0 +1,122 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sdt",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user"
+    }
+  ],
+  "paths": {
+    "/country": {
+      "get": {
+        "tags": ["country"],
+        "summary": "get countries",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": ["user"],
+        "summary": "create new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "example": "Akhmad",
+                    "description": "First name",
+                    "required": true
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "Salafudin",
+                    "description": "Last name",
+                    "required": true
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "axmad386@gmail.com",
+                    "description": "Email",
+                    "required": true
+                  },
+                  "location": {
+                    "type": "string",
+                    "example": "Asia/Jakarta",
+                    "description": "Location, see /country to get available location",
+                    "required": true
+                  },
+                  "birthday_date": {
+                    "type": "string",
+                    "required": true,
+                    "description": "Birthday date, format YYYY-MM-DD",
+                    "example": "1992-04-23"
+                  }
+                },
+                "example": {
+                  "first_name": "Akhmad",
+                  "last_name": "Salafudin",
+                  "email": "axmad386@gmail.com",
+                  "location": "Asia/Jakarta",
+                  "birthday_date": "1992-04-23"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "delete": {
+        "tags": ["user"],
+        "summary": "delete user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

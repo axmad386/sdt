@@ -1,8 +1,8 @@
 import ApiException from "./ApiException";
 import { Handler as ExceptionHandler, HttpException } from "@lunoxjs/core";
-import { Response } from "@lunoxjs/core/facades";
 import { ValidationException } from "@lunoxjs/zod";
 import { EntityNotFoundError } from "typeorm";
+import ApiResponse from "../Http/Support/ApiResponse";
 
 class Handler extends ExceptionHandler {
   protected dontReport = [ValidationException];
@@ -16,14 +16,7 @@ class Handler extends ExceptionHandler {
 
     this.renderable(ValidationException, (e, req) => {
       if (req.wantsJson()) {
-        return Response.make(
-          {
-            message: e.message,
-            errors: e.errors(),
-            status: 422,
-          },
-          422,
-        );
+        return ApiResponse.error("Unprocessable Entity", 422, e.errors());
       }
 
       return back().withInput({ except: "password" }).with({
@@ -33,24 +26,12 @@ class Handler extends ExceptionHandler {
     });
 
     this.renderable(ApiException, (e) => {
-      return Response.make(
-        {
-          message: e.message,
-          status: e.status,
-        },
-        e.status,
-      );
+      return ApiResponse.error(e.message, e.status);
     });
 
     this.renderable(EntityNotFoundError, (e, req) => {
       if (req.wantsJson()) {
-        return Response.make(
-          {
-            message: "Record not found in our database",
-            status: 404,
-          },
-          404,
-        );
+        return ApiResponse.error("Record is not found in our database", 404);
       } else {
         return view("_error", {
           message: "Record not found in our database",
@@ -61,13 +42,7 @@ class Handler extends ExceptionHandler {
 
     this.renderable(HttpException, (e, req) => {
       if (req.wantsJson()) {
-        return Response.make(
-          {
-            message: e.message,
-            status: e.getStatusCode(),
-          },
-          e.getStatusCode(),
-        );
+        return ApiResponse.error(e.message, e.getStatusCode());
       }
 
       // if auth attempt fail, redirect it back
@@ -82,12 +57,11 @@ class Handler extends ExceptionHandler {
 
     this.renderable(Error, (e, req) => {
       if (req.wantsJson()) {
-        return Response.make(
-          {
-            message: env("APP_DEBUG") ? e.message : "Server Error",
-            status: 500,
-          },
+        return ApiResponse.error(
+          env("APP_DEBUG") ? e.message : "Server Error",
           500,
+          {},
+          env("APP_DEBUG") ? e.stack : undefined,
         );
       }
       return view("_error", {

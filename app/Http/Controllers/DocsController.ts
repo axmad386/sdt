@@ -1,8 +1,9 @@
-import { Controller, Request } from "@lunoxjs/core";
+import { Controller } from "@lunoxjs/core";
 
 class DocsController extends Controller {
   async showDocs() {
-    return view("api-docs").clientSideOnly();
+    const spec = await import("../../../docs/swagger.json");
+    return view("api-docs", { spec }).clientSideOnly();
   }
 }
 

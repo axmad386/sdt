@@ -47,6 +47,9 @@ dependencies:
   cors:
     specifier: ^2.8.5
     version: 2.8.5
+  countries-and-timezones:
+    specifier: ^3.5.1
+    version: 3.5.1
   mysql2:
     specifier: ^3.6.0
     version: 3.6.2
@@ -68,6 +71,9 @@ dependencies:
   typeorm:
     specifier: ^0.3.17
     version: 0.3.17(mysql2@3.6.2)(pg@8.11.3)
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
 
 devDependencies:
   '@iconify-json/ant-design':
@@ -3527,6 +3533,11 @@ packages:
     dependencies:
       object-assign: 4.1.1
       vary: 1.1.2
+    dev: false
+
+  /countries-and-timezones@3.5.1:
+    resolution: {integrity: sha512-DlsW+qxiJI6HJ83Yjjmuokgul3KKs0BmraPigFZ1sjWHPZcOTJ0LwB5iewZT9wsMAbmgGSVUdY4nZ4JnHD6NBQ==}
+    engines: {node: '>=8.x', npm: '>=5.x'}
     dev: false
 
   /cron-validate@1.4.5:
