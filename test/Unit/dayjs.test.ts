@@ -18,8 +18,8 @@ describe("Dayjs Test", () => {
     const timezoneDate = dayjs()
       .tz(randomTimezone)
       .subtract(utcOffset || 0, "minutes")
-      .format("YYYY-MM-DD HH");
-    const utcDate = dayjs().utc().format("YYYY-MM-DD HH");
+      .format("MM-DD HH");
+    const utcDate = dayjs().utc().format("MM-DD HH");
     expect(timezoneDate == utcDate).toBe(true);
   });
 });

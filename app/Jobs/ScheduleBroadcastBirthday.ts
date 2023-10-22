@@ -28,11 +28,12 @@ class ScheduleBroadcastBirthday extends Dispatchable {
     });
 
     for (const user of users) {
+      // send birthday mail only when Month Date and hour match
       if (
         dayjs(`${user.birthday} ${config("broadcast.birthday")}`)
           .tz(user.location)
           .subtract(user.utcOffset, "minutes")
-          .format("YYYY-MM-DD HH") == dayjs().utc().format("YYYY-MM-DD HH")
+          .format("MM-DD HH") == dayjs().utc().format("MM-DD HH")
       ) {
         const scheduled_at = new Date();
         const {
