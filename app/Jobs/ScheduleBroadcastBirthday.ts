@@ -13,19 +13,13 @@ class ScheduleBroadcastBirthday extends Dispatchable {
   }
   async handle(): Promise<void> {
     // date can be 2 days, because different utcOffset
-    const utcDate1 = dayjs().utc().format("YYYY-MM-DD");
-    const utcDate2 = dayjs().utc().add(1, "day").format("YYYY-MM-DD");
-    const users = await DB.use(User).find({
-      where: [
-        {
-          birthday: utcDate1 as any,
-        },
-
-        {
-          birthday: utcDate2 as any,
-        },
-      ],
-    });
+    const utcDate1 = dayjs().utc().format("%-MM-DD");
+    const utcDate2 = dayjs().utc().add(1, "day").format("%-MM-DD");
+    const users = await DB.use(User)
+      .createQueryBuilder()
+      .where("birthday::text like :date1", { date1: utcDate1 })
+      .orWhere("birthday::text like :date2", { date2: utcDate2 })
+      .getMany();
 
     for (const user of users) {
       // send birthday mail only when Month Date and hour match
