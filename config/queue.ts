@@ -10,7 +10,7 @@ export default {
       driver: "typeorm",
       table: "queue_jobs",
       queue: "default",
-      retryAfter: 90,
+      retryAfter: 2,
     },
   },
 } satisfies QueueConfig;

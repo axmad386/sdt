@@ -1,16 +1,15 @@
 import { Kernel as ConsoleKernel } from "@lunoxjs/core/console";
 import { Schedule } from "@lunoxjs/event";
 import { HasSchedule } from "@lunoxjs/event/contracts";
-import DummyJob from "../Jobs/DummyJob";
+import ScheduleBroadcastBirthday from "../Jobs/ScheduleBroadcastBirthday";
 
 class Kernel extends ConsoleKernel implements HasSchedule {
   protected async commands() {
     await this.load(base_path("app/Console/Command"));
   }
   public schedule(schedule: Schedule): void {
-    schedule
-      .job(new DummyJob("hello from scheduler"))
-      .interval("every 5 seconds");
+    // run every hour at minute 0
+    schedule.job(new ScheduleBroadcastBirthday()).cron("0 0 * * * *");
   }
 }
 

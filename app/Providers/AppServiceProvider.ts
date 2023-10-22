@@ -1,10 +1,15 @@
 import { ServiceProvider } from "@lunoxjs/core";
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
+import dayjs from "dayjs";
 
 class AppServiceProvider extends ServiceProvider {
   /**
    * Register any application services.
    */
   public async register() {
+    dayjs.extend(utc);
+    dayjs.extend(timezone);
     this.app.instance("version", await this.getVersion());
   }
 

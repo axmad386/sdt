@@ -5,6 +5,8 @@ import { DB } from "@lunoxjs/typeorm";
 import User from "../../Model/User";
 import ApiResponse from "../Support/ApiResponse";
 import { Not } from "typeorm";
+import Broadcast, { BroadcastStatus } from "../../Model/Broadcast";
+import dayjs from "dayjs";
 
 class UserController extends Controller {
   async list() {
@@ -27,17 +29,19 @@ class UserController extends Controller {
     if (await DB.use(User).exist({ where: { email } }))
       abort(400, "Email already exists");
 
+    const utcOffset = dayjs().tz(location).utcOffset();
     const {
       identifiers: [{ id }],
     } = await DB.use(User).insert({
       first_name,
       last_name,
       birthday: birthday_date,
+      utcOffset,
       email,
       location,
     });
 
-    const newUser = await DB.use(User).findOneBy({ id });
+    const newUser = await DB.use(User).findOneByOrFail({ id });
 
     return ApiResponse.success(newUser, "User created", 201);
   }
@@ -78,9 +82,18 @@ class UserController extends Controller {
     if (last_name) user.last_name = last_name;
     if (birthday_date) user.birthday = birthday_date;
     if (email) user.email = email;
-    if (location) user.location = location;
+    if (location) {
+      user.location = location;
+      user.utcOffset = dayjs().tz(location).utcOffset();
+    }
     await DB.use(User).save(user);
 
+    // remove all pending broadcast so they are not sent
+    // scheduler will try send them again with correct date
+    await DB.use(Broadcast).delete({
+      user_id: user.id,
+      status: BroadcastStatus.SENDING,
+    });
     return ApiResponse.success(user, "User updated", 200);
   }
 }

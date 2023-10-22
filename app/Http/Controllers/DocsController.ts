@@ -1,9 +1,9 @@
 import { Controller } from "@lunoxjs/core";
-
+import fs from "fs";
 class DocsController extends Controller {
   async showDocs() {
-    const spec = await import("../../../docs/swagger.json");
-    return view("api-docs", { spec }).clientSideOnly();
+    const json = fs.readFileSync(root_path("docs/swagger.json"), "utf8");
+    return view("api-docs", { spec: JSON.parse(json) }).clientSideOnly();
   }
 }
 
