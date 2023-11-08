@@ -1,8 +1,8 @@
 {
-  "name": "sdt-test",
+  "name": "mail-scheduler",
   "version": "1.0.0",
   "private": true,
-  "description": "Surya Digital Teknologi Test",
+  "description": "Mail Scheduler",
   "main": "index.js",
   "scripts": {
     "artisan": "tsx artisan.ts",

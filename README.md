@@ -1,4 +1,34 @@
-# LUNOX - REACT PRESET
+# MAIL SCHEDULER BUILD WITH LUNOXJS - REACT PRESET
+
+## How To Run This App (For Production)
+ - install dependencies
+   ```bash
+   pnpm install
+   ```
+ - copy environment variable and fill your database environment
+   ```bash
+   cp .env.example .env
+   ```
+ - build the app
+   ```bash
+   pnpm build
+   ```
+ - run the app
+   ```bash
+   pnpm serve
+   ```
+ - run the queue worker via artisan
+   ```bash
+   node dist/artisan.mjs queue:work
+   ```
+ - run the scheduler via artisan
+   ```bash
+   node dist/artisan.mjs schedule:run
+   ```
+## Run Unit Testing
+```bash
+pnpm test
+```
 
 ## What is Lunox
 Lunox is Laravel-Flavoured NodeJs Framework. What is Laravel?
