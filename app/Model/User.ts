@@ -1,6 +1,3 @@
-import { Traitable } from "@lunoxjs/core";
-import { AuthenticatableTrait } from "@lunoxjs/auth/typeorm";
-import type { Authenticatable } from "@lunoxjs/auth/contracts";
 import {
   Column,
   CreateDateColumn,
@@ -9,9 +6,8 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 
-interface User extends Authenticatable { }
 @Entity("users")
-class User extends Traitable(class { }).use(AuthenticatableTrait) {
+class User {
   @PrimaryGeneratedColumn()
   id!: number;
 
