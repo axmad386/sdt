@@ -19,11 +19,11 @@
    ```
  - run the queue worker via artisan
    ```bash
-   node dist/artisan.mjs queue:work
+   pnpm artisan:prod queue:work
    ```
  - run the scheduler via artisan
    ```bash
-   node dist/artisan.mjs schedule:run
+   pnpm artisan:prod schedule:run
    ```
 ## Run Unit Testing
 ```bash

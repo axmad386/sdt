@@ -20,9 +20,7 @@
   "paths": {
     "/country": {
       "get": {
-        "tags": [
-          "country"
-        ],
+        "tags": ["country"],
         "summary": "get countries",
         "responses": {
           "200": {
@@ -443,9 +441,7 @@
     },
     "/user": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "create new user",
         "requestBody": {
           "content": {
@@ -679,21 +675,11 @@
                   "message": "Unprocessable Entity",
                   "data": [],
                   "errors": {
-                    "first_name": [
-                      "Required"
-                    ],
-                    "last_name": [
-                      "Required"
-                    ],
-                    "birthday_date": [
-                      "Invalid date"
-                    ],
-                    "email": [
-                      "Required"
-                    ],
-                    "location": [
-                      "Required"
-                    ]
+                    "first_name": ["Required"],
+                    "last_name": ["Required"],
+                    "birthday_date": ["Invalid date"],
+                    "email": ["Required"],
+                    "location": ["Required"]
                   }
                 }
               }
@@ -702,9 +688,7 @@
         }
       },
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "get all user",
         "responses": {
           "200": {
@@ -785,9 +769,7 @@
     },
     "/user/{id}": {
       "patch": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "update data user",
         "requestBody": {
           "content": {
@@ -916,9 +898,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "delete user",
         "parameters": [
           {

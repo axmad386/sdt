@@ -69,12 +69,13 @@ class UserController extends Controller {
       });
     const user = await DB.use(User).findOneByOrFail({ id });
     if (
-      await DB.use(User).exist({
+      email &&
+      (await DB.use(User).exist({
         where: {
           email,
           id: Not(id),
         },
-      })
+      }))
     )
       abort(400, "Email already exists");
 

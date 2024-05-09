@@ -1,5 +1,5 @@
 import type { Kernel } from "@lunoxjs/core";
-import app from "../bootstrap/app";
+import app from "../app";
 import { BaseTestCase } from "@lunoxjs/test";
 import { DB } from "@lunoxjs/typeorm";
 import User from "../app/Model/User";

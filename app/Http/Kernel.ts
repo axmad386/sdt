@@ -5,8 +5,6 @@ import {
 } from "@lunoxjs/core";
 import VerifyCsrfToken from "../../app/Middleware/VerifyCsrfToken";
 import EncryptCookie from "../../app/Middleware/EncryptCookie";
-import AuthMiddleware from "../../app/Middleware/AuthMiddleware";
-import GuestMiddleware from "../../app/Middleware/GuestMiddleware";
 import { StartSession } from "@lunoxjs/session";
 class Kernel extends BaseKernel {
   protected middleware = [CorsMiddleware];
@@ -20,10 +18,7 @@ class Kernel extends BaseKernel {
     ],
   };
 
-  protected routeMiddleware = {
-    auth: AuthMiddleware,
-    guest: GuestMiddleware,
-  };
+  protected routeMiddleware = {};
 }
 
 export default Kernel;

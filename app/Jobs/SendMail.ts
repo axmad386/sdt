@@ -8,6 +8,9 @@ import dayjs from "dayjs";
 class SendMail extends Dispatchable {
   protected shouldQueue = true;
   protected metaUrl = import.meta.url;
+  displayName(): string {
+    return base_path("app/Jobs/SendMail.js");
+  }
   tries = 10;
   constructor(
     public user: User,
@@ -25,7 +28,6 @@ class SendMail extends Dispatchable {
       },
     });
     if (!broadcast) return;
-
     await axios.post(
       "https://email-service.digitalenvision.com.au/send-email",
       {
@@ -38,7 +40,6 @@ class SendMail extends Dispatchable {
         },
       },
     );
-
     broadcast.status = BroadcastStatus.SENT;
     await DB.use(Broadcast).save(broadcast);
   }

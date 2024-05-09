@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import TestCase from "../TestCase";
 import { describe, expect, test } from "vitest";
 
@@ -59,7 +60,9 @@ describe("User Api Test", () => {
       .expect(200);
 
     expect(resUpdate.body.data.first_name).toBe("John");
-    expect(resUpdate.body.data.utcOffset).toBe(660);
+    expect(resUpdate.body.data.utcOffset).toBe(
+      dayjs().tz("Australia/Melbourne").utcOffset(),
+    );
   });
   test("can delete user data", async () => {
     const res = await agent.get("/user").expect(200);
@@ -68,7 +71,9 @@ describe("User Api Test", () => {
       .expect(200)
       .then((res) => {
         expect(res.body.data.first_name).toBe("John");
-        expect(res.body.data.utcOffset).toBe(660);
+        expect(res.body.data.utcOffset).toBe(
+          dayjs().tz("Australia/Melbourne").utcOffset(),
+        );
       });
     agent
       .get("/user")
