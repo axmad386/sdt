@@ -34,6 +34,8 @@ docker compose up -d
 ```bash
 pnpm test
 ```
+## Documentation (Open Api)
+Api docs can be accessed at http://localhost:8000/api-docs
 
 ## What is Lunox
 Lunox is Laravel-Flavoured NodeJs Framework. What is Laravel?
