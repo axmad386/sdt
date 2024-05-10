@@ -10,6 +10,7 @@ export enum BroadcastStatus {
   SENT = "sent",
   SENDING = "sending",
   FAILED = "failed",
+  CANCELED = "canceled",
 }
 
 export enum BroadCastType {

@@ -9,29 +9,29 @@ dependencies:
     specifier: ^1.0.1
     version: 1.0.1
   '@lunoxjs/core':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2
   '@lunoxjs/event':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(bree@9.2.3)(dayjs@1.11.11)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(bree@9.2.3)(dayjs@1.11.11)
   '@lunoxjs/mail':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(@lunoxjs/view@2.0.0-beta.3.1)(nodemailer@6.9.13)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(@lunoxjs/view@2.0.0-beta.3.2)(nodemailer@6.9.13)
   '@lunoxjs/session':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)
   '@lunoxjs/typeorm':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(typeorm@0.3.20)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(typeorm@0.3.20)
   '@lunoxjs/view':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)
   '@lunoxjs/view-plugin-react':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(react-dom@18.3.1)(react@18.3.1)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(react-dom@18.3.1)(react@18.3.1)
   '@lunoxjs/zod':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(zod@3.23.8)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(zod@3.23.8)
   axios:
     specifier: ^1.6.8
     version: 1.6.8
@@ -68,8 +68,8 @@ dependencies:
 
 devDependencies:
   '@lunoxjs/test':
-    specifier: 2.0.0-beta.3.1
-    version: 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(supertest@6.3.4)(vitest@0.34.6)
+    specifier: 2.0.0-beta.3.2
+    version: 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(supertest@6.3.4)(vitest@0.34.6)
   '@swc/core':
     specifier: ^1.5.5
     version: 1.5.5
@@ -930,8 +930,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@lunoxjs/core@2.0.0-beta.3.1:
-    resolution: {integrity: sha512-AuIYTDajBnv9sx7vVjgtVrlnG7oq5wMDd+lX2ydWl5mKgMM6lvQJ2ZeY/yh5UolrchrX7i/S59T4a66ZIcaMig==}
+  /@lunoxjs/core@2.0.0-beta.3.2:
+    resolution: {integrity: sha512-L5Z+1E78BjhXs11goZWD9fv1Xgaql1U595sId6eC8DIaw3LIi+TjGqqmkjK+K+kIdWUwrFzizPhoW6b0l7w/+Q==}
     hasBin: true
     dependencies:
       colorette: 2.0.20
@@ -944,93 +944,93 @@ packages:
       polka: 1.0.0-next.23
       sirv: 2.0.4
 
-  /@lunoxjs/event@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(bree@9.2.3)(dayjs@1.11.11):
-    resolution: {integrity: sha512-dM3RYYQW7HP9mJgwTHIxBf4RmkcpM6OtdJr/PyHirTUA9dIj7+0iAeHURH7v+exm8YoiN2pTRwnacbeqn/grzw==}
+  /@lunoxjs/event@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(bree@9.2.3)(dayjs@1.11.11):
+    resolution: {integrity: sha512-KXVli5UhWgWElXub5JS4SJc/qu+SUJuznsasob4s0a38Jrk0CAfSutKx9pNLwFDEGbcp2thgl4LP4fPzbrf/8w==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       bree: ^9.2.2
       dayjs: ^1.11.10
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       bree: 9.2.3
       dayjs: 1.11.11
     dev: false
 
-  /@lunoxjs/mail@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(@lunoxjs/view@2.0.0-beta.3.1)(nodemailer@6.9.13):
-    resolution: {integrity: sha512-W4llMaRpDw3rDlP/bloyn6t/UyFVz8XbEBeItWJ3R1Inim3GSTNvbEWauqqhVXnVDmZ2f4Fp/3h/FNjCGUKfuw==}
+  /@lunoxjs/mail@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(@lunoxjs/view@2.0.0-beta.3.2)(nodemailer@6.9.13):
+    resolution: {integrity: sha512-qmDiIXC+jpY6UxWVR0qH0m56fR0PEdM+LjfMjJeKKEN7F10eTcCROCUOkTzScIDeSC/tc2YfhHh6c5awZJ3iZw==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
-      '@lunoxjs/view': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
+      '@lunoxjs/view': 2.0.0-beta.3.2
       nodemailer: ^6.9.7
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
-      '@lunoxjs/view': 2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)
+      '@lunoxjs/core': 2.0.0-beta.3.2
+      '@lunoxjs/view': 2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)
       nodemailer: 6.9.13
     dev: false
 
-  /@lunoxjs/session@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1):
-    resolution: {integrity: sha512-LYXgXS8XwwD9nV0ZrolA3MY5gWlDS4i5WPo/6qFbpC6IJVILp081VxvwUt1muk+89/rRCDLgcHkKfD3I93X8BA==}
+  /@lunoxjs/session@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2):
+    resolution: {integrity: sha512-6RQi3T1bzSTkvn2Mfe2+RIpNXaTZ0UFMUz4ckiJrnvVCoDRnhlzzE/fBazpgkj/1dN6UvtqNmAbA/zTA+tFnww==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       express-session: 1.18.0
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@lunoxjs/test@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(supertest@6.3.4)(vitest@0.34.6):
-    resolution: {integrity: sha512-9YsYUEJyabTXAeBS7AFGbLJYWS0HJWv0hkOXPvy/WHHssF4Eui6y1Z0SvJJA1byrohytrEGLQXZud2bbTjI2lA==}
+  /@lunoxjs/test@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(supertest@6.3.4)(vitest@0.34.6):
+    resolution: {integrity: sha512-bebtUmT+/z7yZUd3p6JY+VKsk6gqGkqglFss7Qxz8kAg7IXqVQrIV0YSyCWbGQhZgVkHFLxpMzvDME+ofknEeA==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       supertest: ^6.3.3
       vitest: ^0.34.6
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       supertest: 6.3.4
       vitest: 0.34.6
     dev: true
 
-  /@lunoxjs/typeorm@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(typeorm@0.3.20):
-    resolution: {integrity: sha512-tqfO8AmEl0yLspX/74E5fTGoxNKQD9XkzG5NS7MIksAPryaQ2td9o3rkpOQ4mPEt1sgELeAyy6Jti/7v2ZLX2Q==}
+  /@lunoxjs/typeorm@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(typeorm@0.3.20):
+    resolution: {integrity: sha512-QzIjn3o2dIHanJJ85AqRPKzzb2PghpoGVbLzpAI33Qv9nknwUDnHqVaI/S1UvdMC76LOP+E15kvThSBu7hx+jA==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       typeorm: ^0.3.17
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       typeorm: 0.3.20(pg@8.11.5)
     dev: false
 
-  /@lunoxjs/view-plugin-react@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-wzckOQMwKHDAhGxx0un+91ySZIwBB28G4jhiq/4LSo2+LGyH4CXj6dQjaK8LsRFYPsGNu63+QOpkDrTpnH2S9Q==}
+  /@lunoxjs/view-plugin-react@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-jWpFll2Wk2kQxXO46MbRLGztbdt9M1zTo60JTTsVSui3XJ+MiQgwhpz/7+iybQ4wEVMKBxiTQqKb2UvTJWNV/Q==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@inertiajs/react': 1.0.16(react@18.3.1)
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /@lunoxjs/view@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1):
-    resolution: {integrity: sha512-KldHqGO0zBwMhMujp4Y/6ePfgCKqygrkh617FcJH6owPNBLqqrBap6lYCzGFTRdneA/W+FvOwmPyvgSH+GCRJA==}
+  /@lunoxjs/view@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2):
+    resolution: {integrity: sha512-cp7CjJ/8gqWT3Vs+0Et48yuCnvIxivwSDW9pknMvwdw/3Y+WnJjcseHQWmjsW0MQq2pzrY5QFufMS+4K5tmaqQ==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
     dev: false
 
-  /@lunoxjs/zod@2.0.0-beta.3.1(@lunoxjs/core@2.0.0-beta.3.1)(zod@3.23.8):
-    resolution: {integrity: sha512-qyH0s6RmZAyKKaS8+EuzSFpCXeS+19hFML9iM15j2E3gH4AE8gzI4LibW1kZj2KJNR9MqtEpLSWt/nyFSutJVg==}
+  /@lunoxjs/zod@2.0.0-beta.3.2(@lunoxjs/core@2.0.0-beta.3.2)(zod@3.23.8):
+    resolution: {integrity: sha512-QP3VAO+7RHzf91kRRmCybNBLIZxAhMbH2X6ac5u/zepzvm6QqFyMbpj6CG3YweBGofHy5SNso2xBh88f2YdNEA==}
     peerDependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       zod: ^3.22.4
     dependencies:
-      '@lunoxjs/core': 2.0.0-beta.3.1
+      '@lunoxjs/core': 2.0.0-beta.3.2
       zod: 3.23.8
     dev: false
 

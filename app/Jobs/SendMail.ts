@@ -7,10 +7,6 @@ import dayjs from "dayjs";
 
 class SendMail extends Dispatchable {
   protected shouldQueue = true;
-  protected metaUrl = import.meta.url;
-  displayName(): string {
-    return base_path("app/Jobs/SendMail.js");
-  }
   tries = 10;
   constructor(
     public user: User,
@@ -28,6 +24,22 @@ class SendMail extends Dispatchable {
       },
     });
     if (!broadcast) return;
+    const sentBroadcast = await DB.use(Broadcast).findOne({
+      where: {
+        user_id: this.user.id,
+        status: BroadcastStatus.SENT,
+      },
+    });
+    // if user already receive this email broadcast at the same day and hour, abort current email broadcast
+    if (
+      sentBroadcast &&
+      dayjs(sentBroadcast.scheduled_at).format("MM-DD HH") ==
+        dayjs().format("MM-DD HH")
+    ) {
+      broadcast.status = BroadcastStatus.CANCELED;
+      await DB.use(Broadcast).save(broadcast);
+      return;
+    }
     await axios.post(
       "https://email-service.digitalenvision.com.au/send-email",
       {

@@ -7,10 +7,6 @@ import Broadcast, { BroadCastType, BroadcastStatus } from "../Model/Broadcast";
 
 class ScheduleBroadcastBirthday extends Dispatchable {
   protected shouldQueue = true;
-  protected metaUrl = import.meta.url;
-  constructor() {
-    super();
-  }
   async handle(): Promise<void> {
     // date can be 2 days, because different utcOffset
     const utcDate1 = dayjs().utc().format("%-MM-DD");
@@ -23,10 +19,11 @@ class ScheduleBroadcastBirthday extends Dispatchable {
 
     for (const user of users) {
       // send birthday mail only when Month Date and hour match
+      const utcOffset = dayjs().tz(user.location).utcOffset();
       if (
         dayjs(`${user.birthday} ${config("broadcast.birthday")}`)
           .tz(user.location)
-          .subtract(user.utcOffset, "minutes")
+          .subtract(utcOffset, "minutes")
           .format("MM-DD HH") == dayjs().utc().format("MM-DD HH")
       ) {
         const scheduled_at = new Date();
