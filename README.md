@@ -1,5 +1,10 @@
 # MAIL SCHEDULER BUILD WITH LUNOXJS - REACT PRESET
 
+## Run Database
+We use postgres as database because it support timestamp with timezone. For simplicity, we use docker. To run the container:
+```bash
+docker compose up -d
+```
 ## How To Run This App (For Production)
  - install dependencies
    ```bash
